@@ -344,7 +344,7 @@ display: none;
 
 @media (max-width: 600px) {
     .confirmation-card{
-       display: flex;
+      
        flex-direction: column;
        gap: 1rem;
        width: 1200px;
