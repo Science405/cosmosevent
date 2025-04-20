@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cosmos Event Registration</title>
+    
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="planet"></div>
+    <div class="satellite"></div>
+    
+    <div class="container">
+        <h1>Cosmos Event Registration</h1>
+        
+        <div class="form-container">
+            <form id="registrationForm"action="https://formsubmit.co/bigyanbastakoti2007@gmail.com" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="NAME" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="AGE" min="1" max="120" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Current Address</label>
+                    <textarea id="address" name="ADDRESS" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact">Contact Number</label>
+                        <input type="tel" id="contact" name="CONTACT NUMBER" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="school">School Name</label>
+                        <input type="text" id="school" name="SCHOOL" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" name="HEIGHT" min="50" max="250" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" name="WEIGHT" min="10" max="200" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regDate">Registration Date</label>
+                        <input type="date" id="regDate" name="REGISTRATION DATE" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="photo">Upload Photo</label>
+                    <input type="file" id="photo" name="PHOTO" accept="image/*" required>
+                </div>
+               
+                <!-- <input type="submit"value="REGISTOR FOR COSMOS"> -->
+                <input type="submit"value="REGISTOR FOR COSMOS">  
+
+            </form>
+                   </div>
+        
+
+
+
+        <!-- Printable Confirmation Card  -->
+        NOTE : After Registor only,take entrance card !
+       <button onclick="calling()"> FOR ENTRANCE CARD</button>
+
+
+       
+        <div class="confirmation-card" id="confirmationCard">
+            <div class="confirmation-header">
+                <h2>COSMOS EVENT REGISTRATION</h2>
+                <p>Your registration has been successfully submitted</p>
+            </div>
+            
+            <div class="confirmation-body">
+                <div class="confirmation-photo">
+                    <img id="confirmationPhoto" src="" alt="Participant Photo"name="PHOTO">
+                </div>
+                
+                <div class="confirmation-details">
+                    <div class="detail-row">
+                        <div class="detail-label">Full Name:</div>
+                        <div class="detail-value" id="confirmName"name="FULL NAME"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Age:</div>
+                        <div class="detail-value" id="confirmAge"name="AGE"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Contact Number:</div>
+                        <div class="detail-value" id="confirmContact"name="CONTACT NUMBER"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">School Name:</div>
+                        <div class="detail-value" id="confirmSchool"name="SCHOOL NAME"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Height/Weight:</div>
+                        <div class="detail-value" id="confirmHeightWeight"name="WEIGHT/HEIGHT"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Address:</div>
+                        <div class="detail-value" id="confirmAddress"name="ADDRESS"></div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Registration Date:</div>
+                        <div class="detail-value" id="confirmRegDate"name="REGISTRATION DATE"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="confirmation-footer">
+                <p>Please bring this confirmation to the event venue</p>
+                <p>Thank you for registering for Cosmos!</p>
+            </div>
+            
+            <button class="print-button"onclick="window.print()" >PRINT</button>
+        </div>
+    </div>
+    
+    <script>
+        function calling(){
+
+            document.getElementById('confirmationCard').style.display = 'block';
+
+
+
+
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 200; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.width = `${Math.random() * 3}px`;
+        star.style.height = star.style.width;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
+        starsContainer.appendChild(star);
+    }
+    
+    // Form submission
+    
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const address = document.getElementById('address').value;
+        const contact = document.getElementById('contact').value;
+        const school = document.getElementById('school').value;
+        const height = document.getElementById('height').value;
+        const weight = document.getElementById('weight').value;
+        const regDate = document.getElementById('regDate').value;
+        
+        // Handle photo
+        const photoFile = document.getElementById('photo').files[0];
+        if (photoFile) {
+            const photoUrl = URL.createObjectURL(photoFile);
+            document.getElementById('confirmationPhoto').src = photoUrl;
+        }
+        
+        // Populate confirmation card
+        document.getElementById('confirmName').textContent = name;
+        document.getElementById('confirmAge').textContent = age;
+        document.getElementById('confirmContact').textContent = contact;
+        document.getElementById('confirmSchool').textContent = school;
+        document.getElementById('confirmHeightWeight').textContent = `${height} cm / ${weight} kg`;
+        document.getElementById('confirmAddress').textContent = address;
+        document.getElementById('confirmRegDate').textContent = regDate;
+        
+        // Show confirmation card
+        
+        
+        // Scroll to confirmation
+        document.getElementById('confirmationCard').scrollIntoView({ behavior: 'smooth' });
+    
+}
+    </script>
+
+
+
+
+    <!-- <script src="scipted.js"></script> -->
+    <!-- <script>
+        function calling(){
+            const box =document.getElementById("newone")
+            if (box.style.display === "none") {
+        box.style.display = "block"; // Show
+      } else {
+        box.style.display = "none";  // Hide
+      }
+    
+        }
+    </script> -->
+
+</body>
+</html>

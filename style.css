@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono:wght@400;700&display=swap');
+        
+:root {
+    --cosmos-blue: #0a1a2e;
+    --cosmos-purple: #4e2a84;
+    --cosmos-pink: #ff2d75;
+    --cosmos-teal: #2afadf;
+    --cosmos-dark: #050a15;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    background-color: var(--cosmos-dark);
+    color: white;
+    margin: 0;
+    padding: 0;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 45, 117, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(42, 250, 223, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, rgba(78, 42, 132, 0.2) 0%, transparent 30%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    color: var(--cosmos-teal);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(42, 250, 223, 0.5);
+    letter-spacing: 2px;
+}
+
+.form-container {
+    background-color: rgba(10, 26, 46, 0.8);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(42, 250, 223, 0.2);
+    border: 1px solid var(--cosmos-purple);
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--cosmos-teal);
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--cosmos-purple);
+    border-radius: 5px;
+    background-color: rgba(5, 10, 21, 0.7);
+    color: white;
+    font-family: 'Space Mono', monospace;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--cosmos-pink);
+    box-shadow: 0 0 10px rgba(255, 45, 117, 0.5);
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+button {
+    background: linear-gradient(45deg, var(--cosmos-purple), var(--cosmos-pink));
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    display: block;
+    margin: 30px auto 0;
+    box-shadow: 0 0 15px rgba(255, 45, 117, 0.3);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255, 45, 117, 0.5);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* Printable confirmation card */
+.confirmation-card {
+    display: none;
+    background: linear-gradient(135deg, rgba(10, 26, 46, 0.9), rgba(78, 42, 132, 0.8));
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(42, 250, 223, 0.3);
+    border: 2px solid var(--cosmos-teal);
+    max-width: 800px;
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.confirmation-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 45, 117, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.confirmation-card::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    right: -30%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(42, 250, 223, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.confirmation-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--cosmos-teal);
+    padding-bottom: 20px;
+}
+
+.confirmation-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--cosmos-teal);
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(42, 250, 223, 0.5);
+}
+
+.confirmation-header p {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.confirmation-body {
+    display: flex;
+    gap: 30px;
+}
+
+.confirmation-photo {
+    flex: 0 0 200px;
+}
+
+.confirmation-photo img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid var(--cosmos-pink);
+    box-shadow: 0 0 15px rgba(255, 45, 117, 0.3);
+}
+
+.confirmation-details {
+    flex: 1;
+}
+
+.detail-row {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed rgba(42, 250, 223, 0.3);
+}
+
+.detail-label {
+    flex: 0 0 150px;
+    font-weight: bold;
+    color: var(--cosmos-teal);
+}
+
+.detail-value {
+    flex: 1;
+}
+
+.confirmation-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid var(--cosmos-teal);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.print-button {
+    background: linear-gradient(45deg, var(--cosmos-purple), var(--cosmos-blue));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    display: block;
+    margin: 30px auto 0;
+    box-shadow: 0 0 10px rgba(42, 250, 223, 0.3);
+}
+
+.print-button:hover {
+    background: linear-gradient(45deg, var(--cosmos-blue), var(--cosmos-purple));
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .confirmation-card, .confirmation-card * {
+        visibility: visible;
+    }
+    .confirmation-card {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 20px;
+        box-shadow: none;
+        border: none;
+        background: white;
+        color: black;
+    }
+    .confirmation-header h2 {
+        color: #000;
+        text-shadow: none;
+    }
+    .detail-label {
+        color: #000;
+    }
+    .print-button {
+        display: none;
+    }
+}
+
+/* Special cosmos elements */
+.planet {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--cosmos-purple), var(--cosmos-dark));
+    box-shadow: 0 0 30px var(--cosmos-purple);
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    z-index: -1;
+}
+
+.satellite {
+    width: 50px;
+    height: 20px;
+    background-color: var(--cosmos-teal);
+    border-radius: 50%;
+    position: fixed;
+    top: 25%;
+    right: 25%;
+    animation: orbit 20s linear infinite;
+    box-shadow: 0 0 10px var(--cosmos-teal);
+    z-index: -1;
+}
+
+/*  */
+input[type="submit"] {
+background-color: #4f46e5; /* Indigo-600 */
+color: white;
+padding: 12px 24px;
+font-size: 16px;
+font-weight: 600;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+background-color: #4338ca; /* Indigo-700 */
+transform: scale(1.05);
+}
+
+input[type="submit"]:active {
+background-color: #3730a3; /* Indigo-800 */
+transform: scale(0.98);
+}
+
+/*  */
+
+@keyframes orbit {
+    from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+#newone{
+display: none;
+}
